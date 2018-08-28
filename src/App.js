@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'antd/dist/antd.css'
+import Sider from './components/Nav'
+import TopHeader from './components/TopHeader'
+import ContentPage from './components/ContentPage'
+import { BrowserRouter as Router} from "react-router-dom";
+import styled from 'styled-components'
+
+const Page = styled.div`
+  display:flex;
+  flex-direction: column;
+  height:100vh;
+`
+const Content = styled.div`
+  display:flex;
+  flex:1;
+`
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <Page>
+          <TopHeader />
+          <Content>
+             <Sider />
+             <ContentPage />
+          </Content>
+        </Page>
+      </Router>
     );
   }
 }
